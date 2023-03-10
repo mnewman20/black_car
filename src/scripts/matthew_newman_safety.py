@@ -12,7 +12,7 @@ from nav_msgs.msg import Odometry
 from ackermann_msgs.msg import AckermannDriveStamped 
 
 speed = 0.5
-TTC_threshold = 0.32
+TTC_threshold = 1
 
 def callback_scan(data):
     try:    
@@ -32,7 +32,7 @@ def callback_scan(data):
             ii += 1
             angle_n += angle_inc
         bag_pub.publish(TTC_min)
-        bag_pub_2.pubshlish(TTC_threshold)
+        bag_pub_2.publish(TTC_threshold)
         if(TTC_min < TTC_threshold):
             ack_msg = AckermannDriveStamped()
             ack_msg.drive.speed = 0.0
@@ -62,10 +62,10 @@ def callback_scan(data):
 brake_pub = rospy.Publisher('vesc/high_level/ackermann_cmd_mux/input/nav_0',AckermannDriveStamped, queue_size=10)
 #brake_bool_pub = rospy.Publisher('brake_bool',Bool, queue_size=10)  
 bag_pub = rospy.Publisher('TTC_min',Float64, queue_size=10)
-bag_pub_2 = rospy.Pubhlisher('TTC_threshold', Float64, queue_size=10)
+bag_pub_2 = rospy.Publisher('TTC_threshold', Float64, queue_size=10)
 
 def safety():
-    rospy.init_node('matthew_newman_safety')
+    rospy.init_node('safety')
     rospy.loginfo(rospy.get_caller_id() + ' E Brake Monitoring...')
     rospy.Subscriber('scan', LaserScan, callback_scan)
     #rospy.Subscriber('odom', Odometry, callback_odom)
