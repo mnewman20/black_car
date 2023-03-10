@@ -1,5 +1,7 @@
 <launch>
     <rosparam command="load" file="$(find black_car)/settings.yaml"/>
-    <node pkg="black_car" name="real_car_lane_follow" type="real_car_lane_follow" output="screen">
+    <node pkg="black_car" name="matthew_newman_safety" type="matthew_newman_safety" output="screen">
+    </node>
+    <node pkg="rosbag" name="record" type="record" args="-o /home/matthew_newman_bags /TTC_min /TTC_threshold">
     </node>
 </launch>
