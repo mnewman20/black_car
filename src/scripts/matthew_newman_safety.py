@@ -12,16 +12,15 @@ from nav_msgs.msg import Odometry
 from ackermann_msgs.msg import AckermannDriveStamped 
 
 speed = 0.5
-TTC_threshold = 0.5
+TTC_threshold = 2.0
 
-def callback_threshold(data):
-    try:
-        global TTC_threshold 
-        TTC_threshold = data
-        rospy.loginfo(rospy.get_caller_id() + ' TTC_threshold: %f', TTC_threshold)
-
-    except:
-        rospy.loginfo(rospy.get_caller_id() + ' error1')  
+#def callback_threshold(data):
+#    try:
+#        global TTC_threshold 
+#        TTC_threshold = data
+#        rospy.loginfo(rospy.get_caller_id() + ' TTC_threshold: %f', TTC_threshold)
+#    except:
+#        rospy.loginfo(rospy.get_caller_id() + ' error1')  
 
 
 def callback_scan(data):
@@ -78,7 +77,7 @@ def safety():
     rospy.init_node('safety')
     rospy.loginfo(rospy.get_caller_id() + ' E Brake Monitoring...')
     rospy.Subscriber('scan', LaserScan, callback_scan)
-    rospy.Subscriber('TTC_threshold', Float64, callback_threshold)
+    #rospy.Subscriber('TTC_threshold', Float64, callback_threshold)
     #rospy.Subscriber('odom', Odometry, callback_odom)
     
     rospy.spin()
