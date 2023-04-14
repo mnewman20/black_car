@@ -1,0 +1,7 @@
+A brief description of how to tune the TTC_min value: 
+After a few iterations, you should be able to determine the deceleration rate of teh car. based on that you can use the velocity curve V2=0=V1-A*T to approximate TTC_min then experimentally dial it in. In this lab, I just left it a global variable in my safety script to manually update. Note that I had to set the speed to 0.75-1.25 rather than 0.5-1.0 as the car would not move at 0.5. 
+
+safety videos:
+https://youtu.be/AUngb55nPYg
+https://youtu.be/DG9hgNl7SFc
+https://youtube.com/shorts/gs5V16F809U?feature=share

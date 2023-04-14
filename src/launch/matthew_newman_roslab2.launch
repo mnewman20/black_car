@@ -1,7 +1,0 @@
-<launch>
-    <include file="$(find f1tenth_simulator)/launch/simulator.launch">
-    </include>
-    
-    <node pkg="matthew_newman_roslab2" name="matthew_newman_safety" type="safety">
-    </node>
- </launch>
