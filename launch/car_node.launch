@@ -2,6 +2,6 @@
     <rosparam command="load" file="$(find black_car)/settings.yaml"/>
     <node pkg="black_car" name="matthew_newman_safety" type="matthew_newman_safety.py" output="screen">
     </node>
-    <node pkg="rosbag" name="record" type="record" args="record -o /TTC_min /TTC_threshold">
+    <node pkg="rosbag" name="record" type="record" args="record -o matthew_newman /TTC_min /TTC_threshold">
     </node>
 </launch>

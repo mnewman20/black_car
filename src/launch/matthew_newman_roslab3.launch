@@ -1,8 +1,6 @@
 <launch>
-    <node pkg="matthew_newman_roslab3" name="range_finder" type="range_finder.py">
+    <node pkg="matthew_newman_roslab3" name="wall_follower" type="wall_following.py">
     </node>
-     <node pkg="matthew_newman_roslab3" name="e_stop" type="e_stop.py">
-    </node>
-     <node pkg="matthew_newman_roslab3" name="wall_follower" type="wall_following.py">
+     <node pkg="rosbag" type="record" name="rosbag_record_cam" args="record -o /distance_target /distance_current">
     </node>
  </launch>
